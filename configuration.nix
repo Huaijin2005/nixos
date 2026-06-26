@@ -84,6 +84,12 @@
       PermitRootLogin = "no";
     };
   };
+  programs.ssh.extraConfig = ''
+  Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+  '';
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
