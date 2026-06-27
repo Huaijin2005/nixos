@@ -6,7 +6,7 @@
 
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   # Bootloader.
@@ -45,7 +45,6 @@
     variant = "";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."huaijin" = {
     isNormalUser = true;
     description = "huaijin";
@@ -84,12 +83,17 @@
       PermitRootLogin = "no";
     };
   };
+
   programs.ssh.extraConfig = ''
   Host github.com
     Hostname ssh.github.com
     Port 443
     User git
   '';
+
+  # VS Code
+  programs.nix-ld.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
