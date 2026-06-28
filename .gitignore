@@ -1,0 +1,7 @@
+result
+result-*
+*.swp
+*.swo
+*~
+.envrc
+.direnv/
