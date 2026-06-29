@@ -42,7 +42,10 @@
   users.users.huaijin = {
     isNormalUser = true;
     description = "huaijin";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.fish;
   };
 
@@ -77,6 +80,11 @@
   nix.settings = {
     netrc-file = config.sops.templates."nix-netrc".path;
   };
+  # 启用 flakes 相关命令
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   system.stateVersion = "26.05";
 }

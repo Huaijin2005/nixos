@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../../modules/home/editor
+  ];
+
   home.username = "huaijin";
   home.homeDirectory = "/home/huaijin";
 
