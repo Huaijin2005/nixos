@@ -15,8 +15,13 @@
         machine github.com
           login oauth2
           password ${config.sops.placeholder.github_token}
+        machine api.github.com
+          login oauth2
+          password ${config.sops.placeholder.github_token}
       '';
-      owner = "root"; # nix-daemon 才需要读取, rebuild 系统
+      owner = "root"; # nix-daemon rebuild 系统
+      group = "wheel"; # nix flake update 需要
+      mode = "0640"; # root可写, wheel可读
     };
   };
 }
